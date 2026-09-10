@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #22d3ee;
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 20px;
+}
+
+/* GRID */
+
+.grid-background {
+  background-image:
+    linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+
+  background-size: 70px 70px;
+}
+
+/* SECTION */
+
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  color: #22d3ee;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: .9;
+  letter-spacing: -.06em;
+  font-weight: 600;
+}
+
+/* PROJECT */
+
+.project-card {
+  padding: 42px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: rgba(255,255,255,.015);
+  transition:
+    transform .4s ease,
+    background .4s ease,
+    border-color .4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,.04);
+  border-color: rgba(34,211,238,.3);
+}
+
+/* INFO CARD */
+
+.info-card {
+  padding: 42px;
+  min-height: 300px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: rgba(255,255,255,.02);
+  transition: .4s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34,211,238,.3);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .project-card {
+    padding: 25px;
+  }
+
+  .info-card {
+    padding: 28px;
+  }
+
+}
+
+/* =========================
+   CONTACT CARDS
+========================= */
+
+.contact-card {
+  position: relative;
+  min-height: 270px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: rgba(255,255,255,.025);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    background .4s ease;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(34,211,238,.08);
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34,211,238,.4);
+  background: rgba(34,211,238,.04);
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-icon {
+  position: relative;
+  z-index: 1;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22d3ee;
+  margin-bottom: 25px;
+  transition: .4s ease;
+}
+
+.contact-card:hover .contact-icon {
+  background: #22d3ee;
+  color: #000;
+  transform: scale(1.08) rotate(-5deg);
+}
+
+.contact-title {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  margin-bottom: 9px;
+}
+
+.contact-value {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  opacity: .45;
+}
+
+.contact-arrow {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .35;
+  transition: .4s ease;
+}
+
+.contact-card:hover .contact-arrow,
+.contact-wide:hover .contact-arrow {
+  opacity: 1;
+  background: #22d3ee;
+  color: #000;
+  border-color: #22d3ee;
+  transform: rotate(45deg);
+}
+
+
+/* WIDE CONTACT */
+
+.contact-wide {
+  position: relative;
+  min-height: 160px;
+  padding: 35px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.025);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: .4s ease;
+}
+
+.contact-wide:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34,211,238,.35);
+  background: rgba(34,211,238,.04);
+}
+
+.contact-wide:hover .contact-arrow {
+  opacity: 1;
+  background: #22d3ee;
+  color: #000;
+  border-color: #22d3ee;
+  transform: rotate(45deg);
+}
